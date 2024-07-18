@@ -19,7 +19,7 @@ const Extensions = () => {
   ];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-red-400">
       <h1 className="text-4xl p-2 font-bold">vs code extensions for front end developer :</h1>
       <div className="p-4">
         <ul>

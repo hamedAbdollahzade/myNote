@@ -3,7 +3,7 @@ import Extensions from "./Page/Extensions";
 
 function App() {
   return (
-    <div className="bg-red-400 w-full flex flex-col">
+    <div className="w-full flex flex-col">
       <Extensions />
     </div>
   );
