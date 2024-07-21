@@ -7,3 +7,7 @@
   margin: 0;
 
 }
+ol li {
+  list-style: decimal;
+  list-style-position: inside;
+}
