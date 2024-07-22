@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 // ! typescript
 // - زبان تایپ اسکریپت بر اساس جاوا اسکریپت ساخته شده
 // - برنامه ساخته شده با تایپ اسکریپت به جاوا اسکریپت کامپایل میشود
@@ -163,7 +163,7 @@ type Proooops = {
   sum: (a: number, b: number) => number;
   male?: boolean; // ==> optional (Not required)
   girlFriend?: "taranoom" | "tarane" | "fatima"; // ===> Union Type
-  children?: React.ReactNode; // ===> React Node Type
+  children: React.ReactNode; // ===> React Node Type
 };
 // --------------
 export function Component({ name, sum, title, children }: Proooops) {
@@ -208,3 +208,10 @@ const TypeScript = () => {
 export default TypeScript;
 
 // ------------------------------------------------------------------
+const [state, setState] = useState<boolean>(2); // Error => type boolean for state
+
+// ------برای بعضی شرایط ک هنوز دیتایی از بکند دریافت نکردیم این مدلی باید تایپ تعریف کنیم ---------
+type state = { name: string; age: number };
+const [data, setData] = useState<state | null>(null);
+// -------------------------------------------------------------------------------
+
