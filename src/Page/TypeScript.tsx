@@ -290,6 +290,9 @@ const App = () => {
 const handlerClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
   console.log(e);
 };
+const handlerChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  console.log(e.target.value);
+};
 
 // حالا در مثال زیر میخوایم ی ایونتی رو پاس بدیم ولی از ما تایپ میخواد چه تایپی بدیم ؟
 const App2 = () => {
@@ -297,6 +300,8 @@ const App2 = () => {
     <div>
       {/* inja miaym dakhel onclick (e)=>{} in ro mizarim mouse ro k hover konim ru "e" behemun typesh ro mide copy mikonim :)  */}
       <button onClick={handlerClick}></button>
+      <input onChange={handlerChange}></input>
     </div>
   );
 };
+// ----------------------------------------------------------------------------
