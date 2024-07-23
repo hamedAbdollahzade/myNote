@@ -267,7 +267,8 @@ let userJadid: IUser2 = {
 //? age nakhaim yeki yeki type props haro taeen konim mitunim az khode React komak begirim chejuri ? injuri :)
 
 type Button = ComponentProps<"button"> & { title: string };
-
+// injuri dg harchi props khasti pas bede khodesh typesh ro mifahme
+// onayy ham k tu type button nist va ma mikhaym ezafe konim be component ro ye "&" mizarim ezafe mikonim :)
 const Button = ({ type, title }: Button) => {
   return (
     <div>
@@ -281,6 +282,21 @@ const App = () => {
   return (
     <div>
       <Button title={"title mored nazar"} />
+    </div>
+  );
+};
+// ---------------------------------------------------------------------
+
+const handlerClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+  console.log(e);
+};
+
+// حالا در مثال زیر میخوایم ی ایونتی رو پاس بدیم ولی از ما تایپ میخواد چه تایپی بدیم ؟
+const App2 = () => {
+  return (
+    <div>
+      {/* inja miaym dakhel onclick (e)=>{} in ro mizarim mouse ro k hover konim ru "e" behemun typesh ro mide copy mikonim :)  */}
+      <button onClick={handlerClick}></button>
     </div>
   );
 };
