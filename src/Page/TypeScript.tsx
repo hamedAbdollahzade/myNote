@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { ComponentProps, useState } from "react";
 // ! typescript
 // - زبان تایپ اسکریپت بر اساس جاوا اسکریپت ساخته شده
 // - برنامه ساخته شده با تایپ اسکریپت به جاوا اسکریپت کامپایل میشود
@@ -215,7 +215,7 @@ type state = { name: string; age: number };
 const [data, setData] = useState<state | null>(null);
 // -------------------------------------------------------------------------------
 
-// extends in Type & Interface :
+// extends in Type:
 type TUser1 = {
   name: string;
   age: number;
@@ -236,6 +236,7 @@ let userMan: TUser2 = {
   },
 };
 
+// extends in Interface :
 interface IUser {
   name: string;
   age: number;
@@ -256,3 +257,30 @@ let userJadid: IUser2 = {
   },
 };
 // ------------------------------------------------------
+// type Button = {
+//     size: "small" | "medium" | "large";
+//     color: "primary" | "secondary" | "danger";
+//     disabled?: boolean;
+//     onClick?: () => void; // ==> optional (Not required)
+//   }
+
+//? age nakhaim yeki yeki type props haro taeen konim mitunim az khode React komak begirim chejuri ? injuri :)
+
+type Button = ComponentProps<"button"> & { title: string };
+
+const Button = ({ type, title }: Button) => {
+  return (
+    <div>
+      <div>{title}</div>
+      <button type={type}>Click Me</button>
+    </div>
+  );
+};
+
+const App = () => {
+  return (
+    <div>
+      <Button title={"title mored nazar"} />
+    </div>
+  );
+};
