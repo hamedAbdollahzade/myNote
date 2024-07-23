@@ -95,7 +95,7 @@ let pro2: productMan2 = {
 };
 // ----------------------------------------------------------------
 // - تایپ ها خیلی شبیه اینترفیس
-// - با این تفاوت که تایپ ها عمومی تر هستین در صورتی ک تمرکز اینترفیس روی ابجکت ها می باشد
+// - با این تفاوت که تایپ ها عمومی تر هستین در صورتی ک تمرکز "اینترفیس" روی "ابجکت" ها می باشد
 // ---------------------------------------------------------------------
 let productHamed: "hamed" | "sepehr";
 
@@ -215,3 +215,44 @@ type state = { name: string; age: number };
 const [data, setData] = useState<state | null>(null);
 // -------------------------------------------------------------------------------
 
+// extends in Type & Interface :
+type TUser1 = {
+  name: string;
+  age: number;
+};
+type TUser2 = TUser1 & {
+  address: {
+    city: string;
+    country: string;
+  };
+};
+
+let userMan: TUser2 = {
+  name: "hamed",
+  age: 29,
+  address: {
+    city: "mashhad",
+    country: "iran",
+  },
+};
+
+interface IUser {
+  name: string;
+  age: number;
+}
+interface IUser2 extends IUser {
+  address: {
+    city: string;
+    country: string;
+  };
+}
+
+let userJadid: IUser2 = {
+  name: "hamed",
+  age: 30,
+  address: {
+    city: "tehran",
+    country: "iran",
+  },
+};
+// ------------------------------------------------------
