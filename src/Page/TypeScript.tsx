@@ -1,4 +1,4 @@
-import React, { ComponentProps, useState } from "react";
+import React, { ComponentProps, useRef, useState } from "react";
 // ! typescript
 // - زبان تایپ اسکریپت بر اساس جاوا اسکریپت ساخته شده
 // - برنامه ساخته شده با تایپ اسکریپت به جاوا اسکریپت کامپایل میشود
@@ -305,3 +305,16 @@ const App2 = () => {
   );
 };
 // ----------------------------------------------------------------------------
+// Baraye Tarif Type Ref :
+
+const App3 = () => {
+  const ref = useRef<HTMLButtonElement>(null);
+
+  return (
+    <div>
+      <button ref={ref}>click Me</button>
+      <input type="text" />
+    </div>
+  );
+};
+// -------------------------------------------------------------------------
