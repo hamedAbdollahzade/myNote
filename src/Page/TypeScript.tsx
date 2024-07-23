@@ -1,4 +1,4 @@
-import React, { ComponentProps, useRef, useState } from "react";
+import React, { ComponentProps, useEffect, useRef, useState } from "react";
 // ! typescript
 // - زبان تایپ اسکریپت بر اساس جاوا اسکریپت ساخته شده
 // - برنامه ساخته شده با تایپ اسکریپت به جاوا اسکریپت کامپایل میشود
@@ -318,3 +318,31 @@ const App3 = () => {
   );
 };
 // -------------------------------------------------------------------------
+// Hala bebinim Omit Chie ? res => zamani k mikhaym yeki az type haro kam konim az Omit Estefade mikonim !
+//kheily Kam estefade mishe vali tu mosahebe ha miporsan ehtemalan !
+
+type moein = {
+  name: string;
+  age: number;
+};
+
+type moein2 = Omit<moein, "age">;
+//! ru moein2 Hover kon ! didi ? alan copy gereft az type moein va "age" ro hazf kard !
+
+// type moein2 = Omit<moein, "age" | "name">;
+// ! va hata mituni begi "name" ro ham nemikham !
+// Nagu vay bargam vay pashmam begu che jaleb :D
+
+// ------------------------------------------------------------------------------------------------
+const App4 = () => {
+  useEffect(() => {
+    // const storage = JSON.parse(localStorage.getItem("info"));
+    //! chon emkan dare "null" bashe ziresh khat mikeshe error mide baraye rafe in mitunim "as" be onvan => "string" bezarim ke begim in string gir nade !
+
+    const storage = JSON.parse(localStorage.getItem("info") as string);
+    console.log(storage);
+  }, []);
+
+  return <div>TEST</div>;
+};
+// ------------------------------------------------------------------------------------
