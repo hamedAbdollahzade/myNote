@@ -1,10 +1,72 @@
 import React, { ComponentProps, useEffect, useRef, useState } from "react";
-// ! typescript
-// - زبان تایپ اسکریپت بر اساس جاوا اسکریپت ساخته شده
-// - برنامه ساخته شده با تایپ اسکریپت به جاوا اسکریپت کامپایل میشود
-// --------------------------------------------------------------------------
-// تایپ اسکریپت به دستورات جاوااسکریپت امکان * را افزوده
-// {*} == Type Safety || Type checking
+
+// --------------------------------------------------------------
+// تایپ‌های ابتدایی (Primitive Types):
+
+// number: برای اعداد (صحیح و اعشاری)
+// string: برای رشته‌ها
+// boolean: برای مقادیر درست یا نادرست
+// null: برای مقادیر null
+// undefined: برای مقادیر تعریف‌نشده
+// symbol: برای مقادیر یکتا (معرفی شده در ES6)
+// --------------------------------------------------------------
+// تایپ های ترکیبی (Composite Types):
+
+// آرایه‌ها (Arrays)
+let numbers: number[] = [1, 2, 3];
+
+// شیء‌ها (Objects):
+let person: {name: string, age: number} = {name: "John", age: 30};
+
+// تاپل‌ها (Tuples):
+let tuple: [string, number] = ["hello", 10];
+
+// تایپ‌های خاص (Special Types):
+
+// any: تایپی که می‌تواند هر نوع داده‌ای را بپذیرد. استفاده از این تایپ توصیه نمی‌شود مگر در موارد خاص.
+let anything: any = 5;
+anything = "Hello";
+
+// unknown: مشابه any، اما نوعی امن‌تر است و نیاز به بررسی تایپ قبل از استفاده دارد.
+let maybe: unknown = 10;
+if (typeof maybe === "number") {
+    let number = maybe;  // now TypeScript knows maybe is a number
+}
+
+// void: برای توابعی که مقدار بازگشتی ندارند.
+function log(message: string): void {
+  console.log(message);
+}
+// never: برای توابعی که هرگز مقدار بازگشتی ندارند (مثل توابعی که همیشه خطا می‌اندازند یا حلقه‌های بی‌نهایت).
+function error(message: string): never {
+  throw new Error(message);
+}
+
+// تایپ‌های اتحاد (Union Types):
+
+// اجازه می‌دهند متغیرها بیش از یک نوع داشته باشند.
+let value: string | number;
+value = "Hello";
+value = 10;
+
+// تایپ‌های تقاطعی (Intersection Types):
+interface A {
+  a: string;
+}
+interface B {
+  b: number;
+}
+let c: A & B = {a: "Hello", b: 42};
+
+// تایپ‌های جنسیتی (Generics):
+
+// برای ایجاد تایپ‌های عمومی که می‌توانند با انواع مختلف داده کار کنند.
+function identity<T>(arg: T): T {
+  return arg;
+}
+let output = identity<string>("myString");
+
+
 
 // --------- "Java Script" VS "Type Script" --------------------
 
@@ -66,6 +128,7 @@ type Product = string | number;
 let productId: Product = 123;
 productId = "id123";
 // ---------------------------------------------------------------------
+// Type Aliases نام مستعار
 type productMan = {
   id: number;
   name: string;
@@ -114,7 +177,8 @@ cartItem20 = ["hamed", "sepehr"];
 TypeScript " generic type " :
  To identify a generic type,
  you must prefix the function with <Type> where Type is the generic variable.
- Note: We often use T for generic types. However, it's not limited to any name. Let's redo the above function as a generic typed function
+ Note: We often use T for generic types. However, it's not limited to any name.
+  Let's redo the above function as a generic typed function
 */
 type man<T> = {
   id: number;
@@ -346,3 +410,12 @@ const App4 = () => {
   return <div>TEST</div>;
 };
 // ------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
