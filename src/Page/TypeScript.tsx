@@ -1,7 +1,7 @@
 import React, { ComponentProps, useEffect, useRef, useState } from "react";
 
 // --------------------------------------------------------------
-// تایپ‌های ابتدایی (Primitive Types):
+//? تایپ‌های ابتدایی (Primitive Types):
 
 // number: برای اعداد (صحیح و اعشاری)
 // string: برای رشته‌ها
@@ -10,30 +10,30 @@ import React, { ComponentProps, useEffect, useRef, useState } from "react";
 // undefined: برای مقادیر تعریف‌نشده
 // symbol: برای مقادیر یکتا (معرفی شده در ES6)
 // --------------------------------------------------------------
-// تایپ های ترکیبی (Composite Types):
+//? تایپ های ترکیبی (Composite Types):
 
-// آرایه‌ها (Arrays)
+//? آرایه‌ها (Arrays)
 let numbers: number[] = [1, 2, 3];
 
-// شیء‌ها (Objects):
-let person: {name: string, age: number} = {name: "John", age: 30};
+//? شیء‌ها (Objects):
+let person: { name: string; age: number } = { name: "John", age: 30 };
 
-// تاپل‌ها (Tuples):
+//? تاپل‌ها (Tuples):
 let tuple: [string, number] = ["hello", 10];
 
-// تایپ‌های خاص (Special Types):
+//? تایپ‌های خاص (Special Types):
 
-// any: تایپی که می‌تواند هر نوع داده‌ای را بپذیرد. استفاده از این تایپ توصیه نمی‌شود مگر در موارد خاص.
+//? any: تایپی که می‌تواند هر نوع داده‌ای را بپذیرد. استفاده از این تایپ توصیه نمی‌شود مگر در موارد خاص.
 let anything: any = 5;
 anything = "Hello";
 
-// unknown: مشابه any، اما نوعی امن‌تر است و نیاز به بررسی تایپ قبل از استفاده دارد.
+//? unknown: مشابه any، اما نوعی امن‌تر است و نیاز به بررسی تایپ قبل از استفاده دارد.
 let maybe: unknown = 10;
 if (typeof maybe === "number") {
-    let number = maybe;  // now TypeScript knows maybe is a number
+  let number = maybe; // now TypeScript knows maybe is a number
 }
 
-// void: برای توابعی که مقدار بازگشتی ندارند.
+//? void: برای توابعی که مقدار بازگشتی ندارند.
 function log(message: string): void {
   console.log(message);
 }
@@ -42,23 +42,23 @@ function error(message: string): never {
   throw new Error(message);
 }
 
-// تایپ‌های اتحاد (Union Types):
+//? تایپ‌های اتحاد (Union Types):
 
 // اجازه می‌دهند متغیرها بیش از یک نوع داشته باشند.
 let value: string | number;
 value = "Hello";
 value = 10;
 
-// تایپ‌های تقاطعی (Intersection Types):
+//? تایپ‌های تقاطعی (Intersection Types):
 interface A {
   a: string;
 }
 interface B {
   b: number;
 }
-let c: A & B = {a: "Hello", b: 42};
+let c: A & B = { a: "Hello", b: 42 };
 
-// تایپ‌های جنسیتی (Generics):
+//? تایپ‌های جنسیتی (Generics):
 
 // برای ایجاد تایپ‌های عمومی که می‌توانند با انواع مختلف داده کار کنند.
 function identity<T>(arg: T): T {
@@ -66,6 +66,12 @@ function identity<T>(arg: T): T {
 }
 let output = identity<string>("myString");
 
+//? Type Assertions
+// Sometimes you will have information about the type of a value that TypeScript can’t know about.
+// In this situation, you can use a type assertion to tell TypeScript that you know the value is of a specific type.
+// For example, if you’re using document.getElementById, TypeScript only knows that this will return some kind of Element, but you might know that your page will always have an HTMLDivElement with a given ID.
+// In this case, you can use a type assertion to tell TypeScript that you know the value is a HTMLDivElement:
+const myDiv = document.getElementById("main_div") as HTMLDivElement;
 
 
 // --------- "Java Script" VS "Type Script" --------------------
@@ -410,12 +416,3 @@ const App4 = () => {
   return <div>TEST</div>;
 };
 // ------------------------------------------------------------------------------------
-
-
-
-
-
-
-
-
-
